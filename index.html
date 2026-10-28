@@ -61,6 +61,7 @@ h2{font-size:13px;color:var(--sub);font-weight:500;margin:0 0 10px}
 .row span:first-child{color:var(--sub);width:46px;flex:none;font-size:13px;padding-top:1px}
 .row a{color:var(--ink);text-decoration:none}
 .map{display:block;margin-top:18px;text-align:center;padding:13px;border-radius:14px;background:var(--bg);color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+.copy{font:inherit;font-size:12px;margin-left:6px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 </style>
 </head>
 <body>
@@ -90,9 +91,17 @@ h2{font-size:13px;color:var(--sub);font-weight:500;margin:0 0 10px}
       
       <div class="row"><span>주소</span><span style="width:auto;color:var(--ink);font-size:15px;padding:0">전남광주통합특별시 나주시 남평읍 산남로 612</span></div>
       <div class="row"><span>이메일</span><a href="mailto:mungbyeol@naver.com">mungbyeol@naver.com</a></div>
+      <div class="row"><span>계좌</span><span style="width:auto;color:var(--ink);font-size:15px;padding:0">국민은행 596002-04-239251 <button type="button" class="copy" id="copyBtn">복사</button></span></div>
     </div>
     <a class="map" href="https://map.naver.com/p/search/%EC%A0%84%EB%82%A8%20%EB%82%98%EC%A3%BC%EC%8B%9C%20%EB%82%A8%ED%8F%89%EC%9D%8D%20%EC%82%B0%EB%82%A8%EB%A1%9C%20612" target="_blank" rel="noopener">📍 지도에서 위치 보기</a>
   </section>
 </main>
+<script>
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var b=this,t='596002-04-239251';
+  function done(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)}
+  try{navigator.clipboard.writeText(t).then(done,function(){alert(t)})}catch(e){alert(t)}
+});
+</script>
 </body>
 </html>
